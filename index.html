@@ -1,42 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portafolio de Marzy</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>🌷 Portafolio de Marzy</h1>
-    <p>Ingeniera en Tecnologías Computacionales</p>
+    <h1>Marzy Hernández</h1>
+    <p>Ingeniera en Tecnologías Computacionales | Etapa de Enfoque</p>
   </header>
 
-  <section class="sobre-mi">
-    <h2>Sobre mí</h2>
-    <p>Soy estudiante apasionada por la programación, el diseño y la resolución de problemas. Este portafolio muestra algunos de mis proyectos más representativos durante la Etapa de Enfoque.</p>
-  </section>
+  <main>
+    <section class="intro">
+      <h2>Sobre mí</h2>
+      <p>
+        Soy estudiante apasionada por la tecnología, la innovación social y el diseño centrado en las personas. Este portafolio recopila los proyectos más representativos de mi trayectoria, demostrando mis habilidades técnicas, creativas y colaborativas.
+      </p>
+    </section>
 
-  <section class="proyectos">
-    <h2>Proyectos Destacados</h2>
+    <section class="projects">
+      <h2>Proyectos Destacados</h2>
 
-    <div class="proyecto">
-      <h3>🧠 Proyecto KeySpotting</h3>
-      <p>Plataforma MERN para análisis de tendencias y toma de decisiones.</p>
-      <a href="https://github.com/marzyhernandez/keyspotting" target="_blank">Ver en GitHub</a>
-    </div>
+      <!-- Zazil -->
+      <div class="card">
+        <div class="carousel" data-carousel="zazil">
+          <div class="slides">
+            <div class="slide active"><img src="img/zazil.png" alt="Zazil 1" /></div>
+            <div class="slide"><img src="img/zazil2.png" alt="Zazil 2" /></div>
+            <div class="slide"><video controls><source src="videos/zazil.mp4" type="video/mp4" /></video></div>
+          </div>
+          <div class="dots"></div>
+        </div>
+        <div class="info">
+          <h3>Zazil</h3>
+          <p>Aplicación móvil para salud menstrual con tienda de productos sostenibles, blog educativo y panel de gestión. Creada junto a Fundación Todas Brillamos.</p>
+          <p><strong>Tecnologías:</strong> Android Studio, Firebase, Java, XML, Cloudinary, Stripe</p>
+          <a href="https://github.com/MarzyHernandez/ZazilApp" target="_blank">Ver en GitHub</a>
+        </div>
+      </div>
 
-    <div class="proyecto">
-      <h3>🚗 Simulación de Movilidad Urbana</h3>
-      <p>Sistema multiagente para optimizar tráfico en ciudades usando Unity y Mesa.</p>
-      <a href="https://github.com/marzyhernandez/movilidad-urbana" target="_blank">Ver en GitHub</a>
-    </div>
+      <!-- Verqor -->
+      <div class="card">
+        <div class="carousel" data-carousel="verqor">
+          <div class="slides">
+            <div class="slide active"><img src="img/verqor.png" alt="Verqor 1" /></div>
+            <div class="slide"><img src="img/verqor2.png" alt="Verqor 2" /></div>
+            <div class="slide"><video controls><source src="videos/verqor.mp4" type="video/mp4" /></video></div>
+          </div>
+          <div class="dots"></div>
+        </div>
+        <div class="info">
+          <h3>Verqor's Farming Tycoon</h3>
+          <p>Videojuego educativo tipo tycoon para enseñar finanzas agrícolas a jóvenes productores. Se enfoca en decisiones responsables y simulación realista.</p>
+          <p><strong>Tecnologías:</strong> Unity, C#, Canva, diseño de niveles, Prototipado ágil</p>
+          <a href="https://github.com/A01749675/VerqorsFarmingTycoonS" target="_blank">Ver en GitHub</a>
+        </div>
+      </div>
 
-    <!-- Puedes duplicar esta sección para más proyectos -->
-  </section>
+      <!-- Movilidad -->
+      <div class="card">
+        <div class="carousel" data-carousel="movilidad">
+          <div class="slides">
+            <div class="slide active"><img src="img/movilidad.png" alt="Movilidad 1" /></div>
+            <div class="slide"><img src="img/movilidad2.png" alt="Movilidad 2" /></div>
+            <div class="slide"><video controls><source src="videos/movilidad.mp4" type="video/mp4" /></video></div>
+          </div>
+          <div class="dots"></div>
+        </div>
+        <div class="info">
+          <h3>Simulador de Movilidad Urbana</h3>
+          <p>Proyecto de agentes inteligentes para analizar tráfico urbano, optimizar semáforos y promover rutas eficientes en ciudades mexicanas.</p>
+          <p><strong>Tecnologías:</strong> Unity 3D, C#, Python (Mesa), Visual Studio Code</p>
+          <a href="https://github.com/MarzyHernandez/TC2008B.301" target="_blank">Ver en GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>Creado con 💜 por Marzy Hernández | <a href="mailto:marzy@example.com">marzy@example.com</a></p>
+    <p>© 2025 Marzy Hernández</p>
   </footer>
+
+  <script>
+    document.querySelectorAll(".carousel").forEach(carousel => {
+      const slides = carousel.querySelectorAll(".slide");
+      const dotsContainer = carousel.querySelector(".dots");
+
+      slides.forEach((_, i) => {
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+        if (i === 0) dot.classList.add("active");
+
+        dot.addEventListener("click", () => {
+          slides.forEach(s => s.classList.remove("active"));
+          dotsContainer.querySelectorAll(".dot").forEach(d => d.classList.remove("active"));
+          slides[i].classList.add("active");
+          dot.classList.add("active");
+
+          slides.forEach((slide, j) => {
+            const video = slide.querySelector("video");
+            if (video && j !== i) {
+              video.pause();
+              video.currentTime = 0;
+            }
+          });
+        });
+
+        dotsContainer.appendChild(dot);
+      });
+    });
+  </script>
 </body>
 </html>
+
